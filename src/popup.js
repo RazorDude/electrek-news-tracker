@@ -6,10 +6,10 @@ const setBadgeText = (text) => new Promise((resolve) => chrome.browserAction.set
 const setCookie = (url, name, value) => new Promise((resolve) => chrome.cookies.set({ url, name, value }, () => resolve(true)))
 
 window.onload = async () => {
-  let currentNews = await getCookie('https://spaceflightnow.com/category/news-archive', 'latestNews')
+  let currentNews = await getCookie('https://electrek.co', 'latestNews')
   if (!currentNews) {
     currentNews = '{"items": [], "new": 0, "errors": []}'
-    await setCookie('https://spaceflightnow.com/category/news-archive', 'latestNews', currentNews)
+    await setCookie('https://electrek.co', 'latestNews', currentNews)
   } else {
     currentNews = currentNews.value
   }
@@ -53,10 +53,10 @@ window.onload = async () => {
   }
   if (currentNews.new > 0) {
     if (currentNews.new > 8) {
-      document.getElementById('more-news-info').innerHTML = `<a href='https://spaceflightnow.com/category/news-archive' target='_blank'>+ ${currentNews.new - 8} items not shown here</a>`
+      document.getElementById('more-news-info').innerHTML = `<a href='https://electrek.co' target='_blank'>+ ${currentNews.new - 8} items not shown here</a>`
     }
     currentNews.new = 0
     await setBadgeText('')
-    await setCookie('https://spaceflightnow.com/category/news-archive', 'latestNews', JSON.stringify(currentNews))
+    await setCookie('https://electrek.co', 'latestNews', JSON.stringify(currentNews))
   }
 }

@@ -1,21 +1,21 @@
 {
-	"name": "Space Flight Now News Tracker",
+	"name": "Electrek News Tracker",
 	"version": "1.0",
-	"description": "Space Flight Now News Tracker",
+	"description": "Electrek News Tracker",
 	"permissions": [
 		"notifications",
 		"cookies",
-		"https://spaceflightnow.com/category/news-archive"
+		"https://electrek.co/"
 	],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
 	},
 	"browser_action": {
-		"default_icon": "rocketIcon16.png",
+		"default_icon": "electrekIcon16.png",
 		"default_popup": "popup.html",
-		"icons": {"16": "rocketIcon16.png"}
+		"icons": {"16": "electrekIcon16.png"}
 	},
-	"icons": {"48": "rocketIcon48.png"},
+	"icons": {"48": "electrekIcon48.png"},
 	"manifest_version": 2
 }
